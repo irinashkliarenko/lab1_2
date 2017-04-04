@@ -37,6 +37,7 @@ public class Payment {
 	public Payment rollBack() {
 		Id id = Id.generate();
 
-		return new Payment(id, clientData, amount.multiplyBy(-1));		
+		FactoryPaymentInterface factoryPayment = FactoryPayment.getFactoryPaymentInterface();
+		return factoryPayment.create(clientData, amount);		
 	}
 }
